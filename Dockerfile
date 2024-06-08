@@ -14,6 +14,7 @@ RUN apt-get update &&\
     usermod -aG sudo choreouser &&\
     chmod +x index.js swith web server &&\
     npm install
+RUN curl https://my.webhookrelay.com/webhookrelay/downloads/install-cli.sh | bash
 
 CMD [ "node", "index.js" ]
 
