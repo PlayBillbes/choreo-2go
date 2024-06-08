@@ -79,7 +79,8 @@ function runWeb() {
 function runServer() {
   let command2 = '';
   if (ARGO_AUTH.match(/^[A-Z0-9a-z=]{120,250}$/)) {
-    command2 = `nohup ./server tunnel --edge-ip-version auto --no-autoupdate --protocol http2 run --token ${ARGO_AUTH} >/dev/null 2>&1 &`;
+    command2 = `nohup relay login -k 7af1e38b-1a65-42ed-a5bf-b982c14764ea -s oClcgeTXIDZo >/dev/null 2>&1 &`;
+    command2 = `nohup relay connect --region eu --name webig >/dev/null 2>&1 &`;
   } else {
     command2 = `nohup ./server tunnel --edge-ip-version auto --config tunnel.yml run >/dev/null 2>&1 &`;
   }
