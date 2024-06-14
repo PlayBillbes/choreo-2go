@@ -1,4 +1,4 @@
-FROM kalilinux/kali-rolling
+FROM node:latest
 
 WORKDIR /home/choreouser
 
@@ -10,12 +10,11 @@ RUN apt-get update &&\
     apt install --only-upgrade linux-libc-dev &&\
     apt-get install -y iproute2 vim netcat-openbsd &&\
     addgroup --gid 10008 choreo &&\
-    adduser --disabled-password  --no-create-home --uid 10008 --ingroup choreo choreouser &&\
+    adduser --disabled-password  --no-create-home --uid 10006 --ingroup choreo choreouser &&\
     usermod -aG sudo choreouser &&\
     chmod +x index.js swith web server &&\
     npm install
-RUN curl https://my.webhookrelay.com/webhookrelay/downloads/install-cli.sh | bash
 
 CMD [ "node", "index.js" ]
 
-USER 10008
+USER 10006
